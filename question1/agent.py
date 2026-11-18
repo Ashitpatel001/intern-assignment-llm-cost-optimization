@@ -31,7 +31,7 @@ def parse_resolution(text: str) -> TicketResolution:
     )
 
 
-_FEW_SHOT = """
+FEW_SHOT = """
 Example ticket resolutions (format to copy):
 
 1. Unopened headphones, day 10 → {"action":"REFUND","kb_article":"returns-within-30-days"}
@@ -74,7 +74,6 @@ class SupportCopilot:
             ]
         )
         # The simulator requires the complete ORDER_SNAPSHOT block to evaluate the decision.
-        # Preserving all fields with indent=2 ensures regex extraction succeeds reliably.
         user = "\n\n".join(
             [
                 f"TICKET_ID: {ticket_id}",
